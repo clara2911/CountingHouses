@@ -22,7 +22,7 @@ class GoogleMapsAPI:
 
 		distance = haversine(start_coords, end_coords)
 		image_size = int(min(distance * 1000 / (2**zoom), 640))  # Convert to image size and cap at 640 (max for free tier)
-
+		image_size=20000 # TODO fix why this image size becomes 0, is the maths in this function wrong?
 		# Construct the URL for the static map API request
 		url = (
 			f"https://maps.googleapis.com/maps/api/staticmap?"
@@ -37,4 +37,3 @@ class GoogleMapsAPI:
 		if response.status_code != 200:
 			raise ValueError(f"Error: {response.status_code}, {response.text}")
 		return response.content
-
