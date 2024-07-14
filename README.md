@@ -2,8 +2,13 @@
 
 ## What is this?
 Counting how many people live in an area in Malawi using Google Maps.
-Why? TODO
-![Satellite image of Blantyre,Malawi](images/satellite_image.png)
+In Malawi officials do not have exact records of this, while it is useful to know for e.g. health reasons.
+If counting automatically instead of by hand would be reliable enough, that would save a lot of time. 
+
+Note that detecting African houses brings challenges for models which are pretrained on (often) US or European data.
+Out of the box detection of a 'car' is apparently easier than a 'house' (yolov5 small - pretrained - standard hyperparameters)
+
+![detecting a car](images/detecting_a_car.png)
 
 
 

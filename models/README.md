@@ -1,0 +1,1 @@
+Here the pretrained object detection model YOLO will be downloaded automatically at the first run. 
