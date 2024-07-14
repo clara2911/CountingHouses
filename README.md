@@ -1,5 +1,13 @@
 # Welcome to Counting Houses
 
+## What is this?
+Counting how many people live in an area in Malawi using Google Maps.
+Why? TODO
+
+
+## How to run
+`python entrypoint.py` (once you've completed setup below)
+
 
 
 ## Setup
@@ -9,6 +17,7 @@ conda create --name counting-houses python==3.11 -y
 conda activate counting-houses
 pip install poetry
 poetry install
+```
 
 ### Google maps API connection
 1. Go to the Google Cloud Console.
@@ -20,3 +29,5 @@ poetry install
 7. Click "Create Credentials" and select "API Key".
 8. Copy the API key that is generated into a txt file and call it `credentials.txt`. 
 
+# Contributors
+Koen Greuell & [Clara Tump](https://github.com/clara2911)
