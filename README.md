@@ -3,6 +3,9 @@
 ## What is this?
 Counting how many people live in an area in Malawi using Google Maps.
 Why? TODO
+![Satellite image of Blantyre,Malawi](images/satellite_image.png)
+
+
 
 
 ## How to run
