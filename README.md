@@ -1,6 +1,6 @@
 # Welcome to Counting Houses
 
-## What is this?
+## Introduction
 Counting how many people live in an area in Malawi using Google Maps.
 In Malawi officials do not have exact records of this, while it is useful to know for e.g. health reasons.
 If counting automatically instead of by hand would be reliable enough, that would save a lot of time. 
