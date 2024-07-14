@@ -1,5 +1,5 @@
 from google_maps import GoogleMapsAPI
-from imagehandler import ImageHandler
+from image_handler import ImageHandler
 
 
 def main():
@@ -15,6 +15,8 @@ def main():
     map_image = maps_api.get_static_map_image(api_key, start_coords, end_coords)
     # image_handler.show_image(map_image=map_image) #TODO Still throws an error 'image with type... cannot be converted to float
     image_handler.save_image(map_image=map_image, start_coords=start_coords, end_coords=end_coords)
+    #TODO add house detection
+    #TODO add counting
 
 
 def get_api_key(file_path):

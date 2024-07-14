@@ -5,6 +5,9 @@ credentials.*
 # Outputs
 *.png
 
+# pretrained models (e.g. yolov5)
+*.pt
+
 
 # Other
 *.idea

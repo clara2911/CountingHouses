@@ -1,20 +1,37 @@
+import os
 import cv2
 import matplotlib.pyplot as plt
-from yolov5 import YOLOv5
+import yolov5
 
 def load_model():
     # Initialize the YOLOv5 model (using the small version 'yolov5s' pre-trained on COCO dataset)
-    model = YOLOv5("yolov5s", pretrained=True)
+    os.makedirs(os.path.join('..', 'models'), exist_ok=True)
+    model_filepath = os.path.join('..', 'models', 'yolov5s.pt')
+    model = yolov5.load(model_filepath)
     return model
 
 def detect_houses(model, image_path):
+    # # set model parameters
+    # model.conf = 0.25  # NMS confidence threshold
+    # model.iou = 0.45  # NMS IoU threshold
+    # model.agnostic = False  # NMS class-agnostic
+    # model.multi_label = False  # NMS multiple labels per box
+    # model.max_det = 1000  # maximum number of detections per image
+    #
+    # # set image
+    # img = 'https://github.com/ultralytics/yolov5/raw/master/data/images/zidane.jpg'
+    #
+    # # perform inference
+    # results = model(img)
+
+    #
     # Load the image
     image = cv2.imread(image_path)
     # Convert BGR to RGB
     image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
-    # Perform inference
-    results = model.predict(image_rgb)
+    # perform inference
+    results = model(image_rgb)
 
     # Extract bounding boxes and labels
     boxes = results.xyxy[0].cpu().numpy()  # Bounding boxes (xmin, ymin, xmax, ymax, confidence, class_id)
@@ -39,6 +56,6 @@ def detect_houses(model, image_path):
     plt.show()
 
 # Example usage
-image_path = 'images/satellite_image.png'  # Path to the saved satellite image
+image_path = '../images/satellite_image.png'  # Path to the saved satellite image
 model = load_model()
 detect_houses(model, image_path)
