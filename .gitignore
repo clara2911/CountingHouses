@@ -1,0 +1,9 @@
+# Credentials
+*.txt
+credentials.*
+
+# Outputs
+
+
+# Other
+*.idea
