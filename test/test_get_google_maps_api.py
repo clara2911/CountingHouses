@@ -15,4 +15,8 @@ def test_get_google_maps_api_smoke_test():
 	google_maps_api = GoogleMapsAPI()
 	image_handler = ImageHandler(start_coords=start_coords, end_coords=end_coords)
 	map_image = google_maps_api.get_static_map_image(api_key=api_key, start_coords=start_coords, end_coords=end_coords,maptype="roadmap")
-	image_handler.save_image(map_image=map_image, save_path="./map_image.png")
+	import matplotlib.pyplot as plt
+	plt.imshow(map_image)
+	plt.axis('off')
+	plt.savefig("map_image.png")
+	image_handler.save_image(map_image=map_image, save_path="../images/map_image.png")

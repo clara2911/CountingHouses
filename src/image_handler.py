@@ -14,7 +14,7 @@ class ImageHandler:
 		else:
 			os.makedirs("images", exist_ok=True)
 			image_filepath = os.path.join("images", f"satellite_image_{self.start_coords}_{self.end_coords}.png")
-			cv2.imwrite(image_filepath, map_image)
+		cv2.imwrite(image_filepath, map_image)
 		print(f"Satellite image saved as {image_filepath}")
 
 	def show_image(self, map_image):

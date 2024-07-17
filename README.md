@@ -1,14 +1,17 @@
 # Welcome to Counting Houses
 
 ## Introduction
-Counting how many people live in an area in Malawi using Google Maps.
-In Malawi officials do not have exact records of this, while it is useful to know for e.g. health reasons.
-If counting automatically instead of by hand would be reliable enough, that would save a lot of time. 
+Here we automatically count how many people live in an area in Malawi using Google Maps.
+Quickly knowing how many people live in an area is important in various circumstances, e.g. distributing medicine
+or providing help after a natural disaster. But if the area is remote this is not always known. The imagery
+of Google Maps (houses) can be a useful source to quickly get an estimate from a distance. 
 
-Note that detecting African houses brings challenges for models which are pretrained on (often) US or European data.
-Out of the box detection of a 'car' is apparently easier than a 'house' (yolov5 small - pretrained - standard hyperparameters)
+We first thought we needed to use satellite imagery, but it turns out we can use the map information of the Google Maps API, which already has houses detected pretty accurately for Malawi
+(see darkgrey squares in map below). 
+We then use the estimate of 4.3 people per house (specific to Malawi) to count the number of people
+within a given set of coordinates. 
 
-![detecting a car](images/detecting_a_car.png)
+![map_image](images/map_image.png)
 
 
 
