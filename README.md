@@ -13,6 +13,10 @@ within a given set of coordinates.
 
 ![map_image](images/map_image.png)
 
+based on the satellite imagery below
+
+![satellite_image](images/satellite_image.png)
+
 
 
 
