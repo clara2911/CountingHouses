@@ -10,7 +10,7 @@ We first thought we needed to use satellite imagery, but it turns out we can use
 (see darkgrey squares in map below). 
 We then use the estimate of 4.3 people per house (specific to Malawi) to count the number of people
 within a given set of coordinates. 
-**We estimate 499 people live in the example area below.** 
+**We estimate around 500 people (exact output: 499) live in the example area below.** 
 ![map_image](images/map_image.png)
 
 based on the satellite imagery below
