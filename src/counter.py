@@ -5,7 +5,7 @@ class ByPixelCounter:
 
 	def __init__(self):
 		self.n_pixels_per_human = 20
-		self.range = (146, 146)
+		self.range = (92, 94)
 
 	def count_people(self, image):
 		pixel_matrix = np.array(image)
