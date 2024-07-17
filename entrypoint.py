@@ -1,6 +1,10 @@
+import numpy as np
+
 from google_maps import GoogleMapsAPI
 from image_handler import ImageHandler
 from house_detector import HouseDetector
+from counter import ByPixelCounter
+
 
 
 def main():
@@ -14,17 +18,22 @@ def main():
     image_handler = ImageHandler(start_coords=start_coords, end_coords=end_coords)
     maps_api = GoogleMapsAPI()
     house_detector = HouseDetector()
+    counter = ByPixelCounter()
 
     api_key = get_api_key('credentials.txt')
 
 
-    map_image = maps_api.get_static_map_image(api_key, start_coords, end_coords)
+    map_image = maps_api.get_static_map_image(api_key, start_coords, end_coords, maptype="roadmap", zoom=18)
     # image_handler.show_image(map_image=map_image) #TODO Still throws an error 'image with type... cannot be converted to float
-    image_handler.save_image(map_image=map_image)
+    # image_handler.save_image(map_image=map_image)
+    image_matrix = np.matrix(map_image)
     image_path = f'images/satellite_image_{start_coords}_{end_coords}.png'
-    model = house_detector.load_model()
-    annotated_image = house_detector.detect_houses(model, image_path)
-    image_handler.save_and_show_detected_houses_image(annotated_image)
+    # model = house_detector.load_model()
+    # annotated_image = house_detector.detect_houses(model, image_path)
+    # image_handler.save_and_show_detected_houses_image(annotated_image)
+
+    n_people = counter.count_people(map_image)
+    print(f"{n_people} live here!")
 
 
 def get_api_key(file_path):

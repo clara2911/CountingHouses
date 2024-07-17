@@ -8,11 +8,13 @@ class ImageHandler:
 		self.start_coords = start_coords
 		self.end_coords = end_coords
 
-	def save_image(self, map_image):
-		os.makedirs("images", exist_ok=True)
-		image_filepath = os.path.join("images", f"satellite_image_{self.start_coords}_{self.end_coords}.png")
-		with open(image_filepath, "wb") as f:
-			f.write(map_image)
+	def save_image(self, map_image, save_path=None):
+		if save_path is not None:
+			image_filepath = save_path
+		else:
+			os.makedirs("images", exist_ok=True)
+			image_filepath = os.path.join("images", f"satellite_image_{self.start_coords}_{self.end_coords}.png")
+			cv2.imwrite(image_filepath, map_image)
 		print(f"Satellite image saved as {image_filepath}")
 
 	def show_image(self, map_image):

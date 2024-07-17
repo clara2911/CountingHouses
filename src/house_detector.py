@@ -2,6 +2,9 @@ import os
 import cv2
 import matplotlib.pyplot as plt
 import yolov5
+import yolov9
+import cv2
+from ultralytics import YOLO
 
 
 class HouseDetector:
@@ -9,13 +12,18 @@ class HouseDetector:
     def load_model(self):
         # Initialize the YOLOv5 model (using the small version 'yolov5s' pre-trained on COCO dataset)
         os.makedirs(os.path.join('..', 'models'), exist_ok=True)
-        model_filepath = os.path.join('..', 'models', 'yolov5s.pt')
-        model = yolov5.load(model_filepath)
+        model_filepath = os.path.join('..', 'models', 'yolov9c.pt')
+        # model = yolov5.load(model_filepath)
+        # model = yolov9.load(model_filepath)
+        # Build a YOLOv9c model from pretrained weight
+        model = YOLO(model_filepath)
+        # Display model information (optional)
+        print(f"Model info: \n {model.info()}")
         return model
 
     def detect_houses(self, model, image_path):
         # set model parameters
-        model.conf = 0.25  # NMS confidence threshold
+        model.conf = 0.01  # NMS confidence threshold
         model.iou = 0.45  # NMS IoU threshold
         model.agnostic = False  # NMS class-agnostic
         model.multi_label = False  # NMS multiple labels per box
