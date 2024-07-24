@@ -1,9 +1,5 @@
-import numpy as np
-
-from google_maps import GoogleMapsAPI
-from image_handler import ImageHandler
-from house_detector import HouseDetector
-from counter import ByPixelCounter
+from input.google_maps import GoogleMapsAPI
+from house_counting.counter import ByPixelCounter
 
 
 

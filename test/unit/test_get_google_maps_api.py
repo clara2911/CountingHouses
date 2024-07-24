@@ -1,4 +1,4 @@
-from google_maps import GoogleMapsAPI
+from input.google_maps import GoogleMapsAPI
 from entrypoint import get_api_key
 import matplotlib.pyplot as plt
 

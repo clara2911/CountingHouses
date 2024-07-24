@@ -1,6 +1,5 @@
 # Credentials
 *.txt
-credentials.*
 
 # Outputs
 *.png

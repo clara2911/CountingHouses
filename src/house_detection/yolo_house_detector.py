@@ -6,16 +6,15 @@ import yolov9
 import cv2
 from ultralytics import YOLO
 
+from house_detector import HouseDetector
 
-class HouseDetector:
+
+class YOLOHouseDetector(HouseDetector):
 
     def load_model(self):
         # Initialize the YOLOv5 model (using the small version 'yolov5s' pre-trained on COCO dataset)
-        os.makedirs(os.path.join('..', 'models'), exist_ok=True)
-        model_filepath = os.path.join('..', 'models', 'yolov9c.pt')
-        # model = yolov5.load(model_filepath)
-        # model = yolov9.load(model_filepath)
-        # Build a YOLOv9c model from pretrained weight
+        os.makedirs(os.path.join('../..', 'models'), exist_ok=True)
+        model_filepath = os.path.join('../..', 'models', 'yolov9c.pt')
         model = YOLO(model_filepath)
         # Display model information (optional)
         print(f"Model info: \n {model.info()}")
